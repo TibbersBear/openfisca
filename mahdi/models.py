@@ -34,8 +34,17 @@ register = template.Library()
 def is_checkbox(value):
     return isinstance(value, CheckboxInput)
 
+import os, inspect
+
+cmd_folder = os.path.realpath(os.path.abspath(os.path.split(inspect.getfile( inspect.currentframe() ))[0]))
+predirectory = os.path.dirname(cmd_folder)
+directory = os.path.join(predirectory,'srcopen')
+
+import sys
+sys.path.append(directory)
 
 from core.utils import Scenario
+
 class BaseScenarioFormSet(BaseFormSet):    
     def get_scenario(self):
         scenario = Scenario()

@@ -11,6 +11,17 @@ from django.forms.formsets import formset_factory
 
 from mahdi.interfaces import Simu, Compo, BaseScenarioFormSet
 
+
+import os, inspect
+
+cmd_folder = os.path.realpath(os.path.abspath(os.path.split(inspect.getfile( inspect.currentframe() ))[0]))
+predirectory = os.path.dirname(cmd_folder)
+directory = os.path.join(predirectory,'srcopen')
+
+import sys
+sys.path.append(directory)
+
+
 from france.data import InputTable
 from core.datatable import DataTable
 from core.utils import Scenario
